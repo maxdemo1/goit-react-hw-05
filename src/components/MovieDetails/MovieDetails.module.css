@@ -1,0 +1,64 @@
+.buttonContainer {
+    margin: 12px;
+    position: relative;
+}
+
+.goBackBtn {
+    font-size: 14px;
+    padding: 6px 6px 6px 32px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(227, 144, 144);
+    border-radius: 6px;
+    transition: box-shadow 100ms ease-in-out;
+}
+
+.goBackBtn:hover,
+.goBackBtn:focus {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.arrowSVG {
+    position: absolute;
+    left: 5px;
+    top: 5.5px;
+    width: 20px;
+    height: 16px;
+}
+
+.basicInfoContainer {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
+    margin: 12px;
+    display: flex;
+}
+
+.poster {
+    display: block;
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+
+}
+
+.textInfo {
+    margin: 12px;
+}
+
+.additionalIfnoContainer {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
+    margin: 12px;
+    padding-left: 12px;
+}
+
+.additionalIfnoContainer h4 {
+    margin-bottom: 0;
+}
+
+.additionaLinks {
+    display: block;
+    padding: 8px;
+}
