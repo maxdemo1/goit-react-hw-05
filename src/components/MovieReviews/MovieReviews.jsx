@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { requestMovieReviewsById } from '../../services/api';
 import Loader from '../Loader/Loader';
+import { requestMovieReviewsById } from '../../services/api';
+import styles from './MovieReviews.module.css';
 
 const MovieReviews = ({ movieId }) => {
   const [loaderState, setLoaderState] = useState(false);
@@ -22,20 +23,25 @@ const MovieReviews = ({ movieId }) => {
     };
     getMovieReviews();
   }, [movieId]);
+
   return (
     <div>
       {loaderState && <Loader />}
       {reviewsData.length > 0 ? (
-        <ul>
-          {reviewsData.map(review => (
-            <li key={review.id}>
-              <h4>{review.author}</h4>
-              <p>{review.content}</p>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.listContainer}>
+          <ul className={styles.list}>
+            {reviewsData.map(review => (
+              <li key={review.id}>
+                <h4>{review.author}</h4>
+                <p>{review.content}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : (
-        <div>Unfortunately, there are no reviews for this movie yet</div>
+        <div className={styles.listContainer}>
+          <h5>Unfortunately, there are no reviews for this movie yet</h5>
+        </div>
       )}
     </div>
   );

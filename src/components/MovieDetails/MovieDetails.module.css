@@ -4,6 +4,7 @@
 }
 
 .goBackBtn {
+    display: inline-block;
     font-size: 14px;
     padding: 6px 6px 6px 32px;
     border: none;
@@ -11,6 +12,8 @@
     background-color: rgb(227, 144, 144);
     border-radius: 6px;
     transition: box-shadow 100ms ease-in-out;
+    text-decoration: none;
+    color: black;
 }
 
 .goBackBtn:hover,
@@ -52,6 +55,7 @@
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
     margin: 12px;
     padding-left: 12px;
+    padding-bottom: 8px;
 }
 
 .additionalIfnoContainer h4 {
@@ -59,6 +63,30 @@
 }
 
 .additionaLinks {
-    display: block;
+    display: inline-block;
     padding: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.additionaLinks:first-child {
+    padding-bottom: 0;
+}
+
+.additionaLinks:last-child {
+    padding-top: 0;
+}
+
+.additionaLinks:hover,
+.additionaLinks:focus {
+    transform: scale(1.03);
+    color: #9f0303;
+}
+
+.additionaLinksContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
 }

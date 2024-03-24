@@ -40,3 +40,11 @@ export async function requestMovieReviewsById(movieId) {
   );
   return data;
 }
+
+export async function requestMoviesByKeyword(userQuery) {
+  const data = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?query=${userQuery}&include_adult=true&language=en-US&page=1`,
+    options
+  );
+  return data;
+}

@@ -1,5 +1,5 @@
-import { Suspense, useEffect, useState } from 'react';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 
 import Loader from '../Loader/Loader';
@@ -12,6 +12,8 @@ const MovieDetails = () => {
   const [loaderState, setLoaderState] = useState(false);
   const [movieData, setMovieData] = useState(null);
 
+  const location = useLocation();
+  const goBack = useRef(location.state || '/');
   const { movieId } = useParams();
   useEffect(() => {
     setMovieData(null);
@@ -36,15 +38,15 @@ const MovieDetails = () => {
       {movieData !== null && (
         <div>
           <div className={styles.buttonContainer}>
-            <button type="button" className={styles.goBackBtn}>
+            <Link className={styles.goBackBtn} to={goBack.current}>
               Go back
-            </button>
+            </Link>
             <FaLongArrowAltLeft className={styles.arrowSVG} />
           </div>
           <div className={styles.basicInfoContainer}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`}
-              alt={movieData.original_title}
+              alt={movieData.title}
               className={styles.poster}
             />
             <div className={styles.textInfo}>
@@ -60,12 +62,14 @@ const MovieDetails = () => {
           </div>
           <div className={styles.additionalIfnoContainer}>
             <h4>Addional information</h4>
-            <Link to="cast" className={styles.additionaLinks}>
-              Cast
-            </Link>
-            <Link to="reviews" className={styles.additionaLinks}>
-              Reviews
-            </Link>
+            <div className={styles.additionaLinksContainer}>
+              <Link to="cast" className={styles.additionaLinks}>
+                Cast
+              </Link>
+              <Link to="reviews" className={styles.additionaLinks}>
+                Reviews
+              </Link>
+            </div>
           </div>
           <Suspense fallback={<Loader />}>
             <Routes>

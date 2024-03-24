@@ -14,8 +14,7 @@ const MovieCast = ({ movieId }) => {
         const {
           data: { cast },
         } = await requestMovieCastById(movieId);
-        console.log([...cast.slice(0, 10)]);
-        setCastData([...cast.slice(0, 10)]);
+        setCastData([...cast.slice(0, 12)]);
       } catch (error) {
         console.log('error');
       } finally {
@@ -25,19 +24,22 @@ const MovieCast = ({ movieId }) => {
     getMovieComents();
   }, [movieId]);
   return (
-    <div>
+    <div className={styles.castListContainer}>
       {loaderState && <Loader />}
       {castData.length > 0 ? (
-        <ul>
+        <ul className={styles.castList}>
           {castData.map(actor => (
-            <li key={actor.id}>
+            <li key={actor.id} className={styles.castItem}>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
                 alt={actor.name}
                 className={styles.actorImg}
               />
-              <p>{actor.name}</p>
-              <p>Character: {actor.character}</p>
+              <p className={styles.name}>{actor.name}</p>
+              <p>
+                Character:{' '}
+                <span className={styles.name}>{actor.character}</span>
+              </p>
             </li>
           ))}
         </ul>

@@ -1,0 +1,24 @@
+.searchForm {
+    position: fixed;
+    z-index: 4;
+    top: 11px;
+    left: 100%;
+    transform: translateX(-110%);
+}
+
+.formInput {
+    height: 40px;
+    padding: 4px;
+    outline: none;
+    border: none;
+    border: 2px solid transparent;
+    background-color: rgb(200, 207, 214);
+    overflow: hidden;
+    border-radius: 6px;
+    width: 300px;
+}
+
+.formInput:focus {
+    border: 2px solid #843636;
+
+}

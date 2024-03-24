@@ -1,0 +1,19 @@
+.container {
+    text-align: center;
+}
+
+.backToHome {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #bd3333;
+    color: white;
+    text-decoration: none;
+    transition: transform 200ms ease-in-out;
+}
+
+.backToHome:hover,
+.backToHome:focus {
+    transform: scale(1.05);
+}
