@@ -14,11 +14,14 @@ const MoviesList = ({ trendingMoviesList }) => {
                 state={location}
                 className={styles.listLink}
               >
-                <img
-                  className={styles.moviePoster}
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt={original_title}
-                />
+                <div className={styles.imgContainer}>
+                  <img
+                    className={styles.moviePoster}
+                    src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                    alt={original_title}
+                  />
+                </div>
+
                 <p>{title}</p>
               </NavLink>
             </li>
