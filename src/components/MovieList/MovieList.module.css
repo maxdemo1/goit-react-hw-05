@@ -16,7 +16,7 @@
 }
 
 .listItem {
-    width: calc((100% - 32px) / 5);
+    width: calc((100% - 48px) / 7);
     transition: transform 200ms ease-in-out;
 }
 
