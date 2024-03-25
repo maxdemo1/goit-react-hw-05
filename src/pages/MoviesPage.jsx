@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import MoviesSearch from '../components/MoviesSearch/MoviesSearch';
 import Loader from '../components/Loader/Loader';
-import { requestMoviesByKeyword } from '../services/api';
 import { useSearchParams } from 'react-router-dom';
+
+import { requestMoviesByKeyword } from '../services/api';
 import MoviesList from '../components/MovieList/MovieList';
+import MoviesSearch from '../components/MoviesSearch/MoviesSearch';
 
 const MoviesSearchPage = () => {
   const [movieQuery, setMovieQuery] = useSearchParams();
@@ -49,6 +50,19 @@ const MoviesSearchPage = () => {
       {loaderState && <Loader />}
       {searchResult.length > 0 && userMovieQuery !== '' && showList && (
         <MoviesList trendingMoviesList={searchResult} />
+      )}
+      {searchResult.length === 0 && userMovieQuery !== '' && !loaderState && (
+        <p
+          style={{
+            textAlign: 'center',
+            marginTop: '100px',
+            fontWeight: '500',
+          }}
+        >
+          There are no results for your search query😐
+          <br />
+          Please try something else
+        </p>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import styles from './MoviesSearch.module.css';
 
-const MoviesSearch = ({ query, changeQuery }) => {
+const MoviesPage = ({ query, changeQuery }) => {
   const handleInput = evt => {
     changeQuery(evt.target.value.trim());
   };
@@ -23,4 +23,4 @@ const MoviesSearch = ({ query, changeQuery }) => {
   );
 };
 
-export default MoviesSearch;
+export default MoviesPage;

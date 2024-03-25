@@ -7,7 +7,7 @@ import Navigation from './components/Navigation/Navigation';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
-const MoviesSearchPage = lazy(() => import('./pages/MoviesSearchPage'));
+const MoviesSearchPage = lazy(() => import('./pages/MoviesPage'));
 
 const App = () => {
   return (
