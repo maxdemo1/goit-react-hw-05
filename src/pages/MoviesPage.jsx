@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import Loader from '../components/Loader/Loader';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 import { requestMoviesByKeyword } from '../services/api';
 import MoviesList from '../components/MovieList/MovieList';
 import MoviesSearch from '../components/MoviesSearch/MoviesSearch';
+import NotFoundPage from './NotFoundPage';
+import styles from './NotFoundPage.module.css';
 
-const MoviesSearchPage = () => {
+const MoviesPage = () => {
   const [movieQuery, setMovieQuery] = useSearchParams();
   const [searchResult, setSearchResult] = useState([]);
   const [loaderState, setLoaderState] = useState(false);
   const [showList, setShowList] = useState(false);
   const userMovieQuery = movieQuery.get('query') ?? '';
-
+  const location = useLocation();
   const changeQuery = evt => {
     setMovieQuery({ query: evt });
     if (evt === '') {
@@ -43,7 +45,6 @@ const MoviesSearchPage = () => {
     };
     getMovieByKeyword();
   }, [userMovieQuery]);
-
   return (
     <div style={{ padding: '16px' }}>
       <MoviesSearch query={userMovieQuery} changeQuery={changeQuery} />
@@ -52,20 +53,29 @@ const MoviesSearchPage = () => {
         <MoviesList trendingMoviesList={searchResult} />
       )}
       {searchResult.length === 0 && userMovieQuery !== '' && !loaderState && (
-        <p
-          style={{
-            textAlign: 'center',
-            marginTop: '100px',
-            fontWeight: '500',
-          }}
-        >
-          There are no results for your search query😐
-          <br />
-          Please try something else
-        </p>
+        <div>
+          {' '}
+          <p
+            style={{
+              textAlign: 'center',
+              marginTop: '100px',
+              fontWeight: '500',
+            }}
+          >
+            There are no results for your search query😐
+            <br />
+            Please try something else
+          </p>
+          <Link to="/" className={styles.backToHome}>
+            Home
+          </Link>
+        </div>
       )}
+      {location.search !== '' &&
+        location.search.length < 8 &&
+        location.search.slice(0, 6) === '?query' && <NotFoundPage />}
     </div>
   );
 };
 
-export default MoviesSearchPage;
+export default MoviesPage;

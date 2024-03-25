@@ -7,7 +7,7 @@ import Navigation from './components/Navigation/Navigation';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
-const MoviesSearchPage = lazy(() => import('./pages/MoviesPage'));
+const MoviesPage = lazy(() => import('./pages/MoviesPage'));
 
 const App = () => {
   return (
@@ -15,9 +15,8 @@ const App = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="movies" element={<MoviesSearchPage />} />
+          <Route path="movies" element={<MoviesPage />} />
           <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
-
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
