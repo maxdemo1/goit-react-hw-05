@@ -3,14 +3,16 @@
 }
 
 .backToHome {
-    display: inline-block;
-    margin-top: 12px;
+    display: block;
+    margin: 12px auto;
     padding: 16px;
     border-radius: 6px;
     background-color: #bd3333;
     color: white;
     text-decoration: none;
     transition: transform 200ms ease-in-out;
+    width: 80px;
+    text-align: center;
 }
 
 .backToHome:hover,
