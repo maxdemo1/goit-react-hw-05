@@ -3,10 +3,14 @@ import { useEffect, useState } from 'react';
 import Loader from '../Loader/Loader';
 import { requestMovieCastById } from '../../services/api';
 import styles from './MovieCast.module.css';
+import { useParams } from 'react-router-dom';
 
-const MovieCast = ({ movieId }) => {
+const MovieCast = () => {
   const [loaderState, setLoaderState] = useState(false);
   const [castData, setCastData] = useState([]);
+  const searchParamsData = useParams();
+  const movieId = searchParamsData.movieId;
+
   useEffect(() => {
     const getMovieComents = async () => {
       try {
@@ -23,6 +27,7 @@ const MovieCast = ({ movieId }) => {
     };
     getMovieComents();
   }, [movieId]);
+
   return (
     <div className={styles.castListContainer}>
       {loaderState && <Loader />}

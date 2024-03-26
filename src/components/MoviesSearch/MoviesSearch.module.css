@@ -4,6 +4,8 @@
     top: 11px;
     left: 100%;
     transform: translateX(-110%);
+    display: flex;
+    gap: 8px;
 }
 
 .formInput {
@@ -21,4 +23,18 @@
 .formInput:focus {
     border: 2px solid #843636;
 
+}
+
+.submitBtn {
+    border-radius: 6px;
+    border: none;
+    background-color: #843636;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+}
+
+.submitBtn:hover {
+    transform: scale(1.06);
 }

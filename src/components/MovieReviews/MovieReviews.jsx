@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import Loader from '../Loader/Loader';
 import { requestMovieReviewsById } from '../../services/api';
 import styles from './MovieReviews.module.css';
+import { useParams } from 'react-router-dom';
 
-const MovieReviews = ({ movieId }) => {
+const MovieReviews = () => {
   const [loaderState, setLoaderState] = useState(false);
   const [reviewsData, setReviewsData] = useState([]);
+  const searchParams = useParams();
+  const movieId = searchParams.movieId;
 
   useEffect(() => {
     const getMovieReviews = async () => {

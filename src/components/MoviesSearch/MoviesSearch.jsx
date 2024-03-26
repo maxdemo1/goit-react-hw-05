@@ -1,24 +1,24 @@
 import styles from './MoviesSearch.module.css';
 
-const MoviesPage = ({ query, changeQuery }) => {
-  const handleInput = evt => {
-    changeQuery(evt.target.value.trim());
-  };
-
+const MoviesPage = ({ changeQuery }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
-    changeQuery('');
+    if (evt.target.elements.search.value === '') return;
+    changeQuery(evt.target.elements.search.value);
+    evt.target.elements.search.value = '';
   };
 
   return (
-    <form className={styles.searchForm} onSubmit={handleSubmit}>
+    <form className={styles.searchForm} onSubmit={evt => handleSubmit(evt)}>
       <input
         className={styles.formInput}
         placeholder="Search movies"
         type="text"
-        value={query}
-        onChange={handleInput}
+        name="search"
       />
+      <button type="submit" className={styles.submitBtn}>
+        Search
+      </button>
     </form>
   );
 };

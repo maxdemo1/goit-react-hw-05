@@ -15,6 +15,7 @@ const MoviesPage = () => {
   const [showList, setShowList] = useState(false);
   const userMovieQuery = movieQuery.get('query') ?? '';
   const location = useLocation();
+
   const changeQuery = evt => {
     setMovieQuery({ query: evt });
     if (evt === '') {
@@ -45,6 +46,7 @@ const MoviesPage = () => {
     };
     getMovieByKeyword();
   }, [userMovieQuery]);
+
   return (
     <div style={{ padding: '16px' }}>
       <MoviesSearch query={userMovieQuery} changeQuery={changeQuery} />
@@ -71,9 +73,7 @@ const MoviesPage = () => {
           </Link>
         </div>
       )}
-      {location.search !== '' &&
-        location.search.length < 8 &&
-        location.search.slice(0, 6) === '?query' && <NotFoundPage />}
+      {location.search !== '' && location.search.length < 8 && <NotFoundPage />}
     </div>
   );
 };
