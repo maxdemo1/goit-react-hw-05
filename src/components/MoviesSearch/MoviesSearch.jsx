@@ -5,7 +5,6 @@ const MoviesPage = ({ changeQuery }) => {
     evt.preventDefault();
     if (evt.target.elements.search.value === '') return;
     changeQuery(evt.target.elements.search.value);
-    evt.target.elements.search.value = '';
   };
 
   return (
