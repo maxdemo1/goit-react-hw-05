@@ -18,12 +18,10 @@ const MoviesPage = () => {
 
   const changeQuery = evt => {
     setMovieQuery({ query: evt });
-    if (evt === '') {
-      setMovieQuery('');
-    }
   };
 
   useEffect(() => {
+    console.log(userMovieQuery);
     if (userMovieQuery === '') return;
     setShowList(false);
     const getMovieByKeyword = async () => {
