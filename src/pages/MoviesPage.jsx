@@ -21,7 +21,6 @@ const MoviesPage = () => {
   };
 
   useEffect(() => {
-    console.log(userMovieQuery);
     if (userMovieQuery === '') return;
     setShowList(false);
     const getMovieByKeyword = async () => {
